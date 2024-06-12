@@ -4,7 +4,7 @@ UserCreationBackend is a project aimed at streamlining the process of user and w
 
 ## 🚀 Technology Stack
 
-- **Primary Language**: Python (Up for discussion)
+- Node? 
 
 ### 📝 Handling Forms
 
