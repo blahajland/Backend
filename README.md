@@ -24,9 +24,13 @@ The blahaj.land for self-registration
 }
 ```
 Method: POST
+
 Description: Authenticates a user and returns a JWT access token if the credentials are correct
+
 Response Codes:
+
 200 OK: Returns a JSON with the access token
+
 401 Unauthorized: Returns a JSON with a message indicating bad username or password
 ---
 
@@ -40,11 +44,17 @@ Response Codes:
 }
 ```
 Method: POST
+
 Description: Creates a new user. Requires JWT authentication
+
 Response Codes:
+
 201 Created: Returns a JSON with a success message
+
 432 Conflict: Returns a JSON with an error message indicating the username is already taken
+
 500 Internal Server Error: Returns a JSON with an error message indicating user creation failed
+
 ### This endpoint requires an auth bearer JWT token which we get from **/login** 
 
 ---
@@ -55,11 +65,17 @@ Response Codes:
     "username": "example_user"
 }
 ```
+
 Method: POST
+
 Description: Requests a password reset for a user by sending a reset link to their recovery email saved in the mongo database
+
 Response Codes:
+
 200 OK: Returns a JSON with a message indicating the reset link was sent
+
 404 Not Found: Returns a JSON with an error message indicating the user was not found
+
 ---
 
 ## /reset_password
@@ -68,14 +84,23 @@ Response Codes:
     "token": "example_reset_token"
 }
 ```
+
 Method: GET
+
 Description: Resets the password for a user using a provided reset token
+
 Request Parameters:
+
 token: The reset token provided in the reset link sent via email, contained in the URL
+
 Response Codes:
+
 400 Bad Request: Returns a JSON with an error message indicating the token was not provided
+
 900 Invalid Token: Returns a JSON with an error message indicating the token is invalid or expired
+
 901 Expired Token: Returns a JSON with an error message indicating the token has expired
+
 302 Found: Redirects to the password reset page
 ---
 
