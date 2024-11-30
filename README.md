@@ -16,6 +16,31 @@ The blahaj.land for self-registration
 - the website endpoint should also be have a field for bluesky handle details
   - it would simply have to add a file to the sites at /www/.well-known/atproto-did with the parameter provided by the user
 
+Queue is the most important part of this, I think
+Without it, if we got random surges of registrations the commands WILL timeout before they are executed
+
+### TODO for the queue
+
+1. **Modify run_command and retry_command_until_success functions**
+   - Remove the existing logic for running commands
+   - Add logic to insert a new task into the `tasks_queue` collection with the fields: `action`, `ynh_command`, `status`, and `timestamp`
+     - Also, depending on the task we might have to have more fields for more commands, like when we set up sites we'll need another command to pull it from git, etc
+   - Ensure the `status` is set to `pending` and `timestamp` is in UTC
+
+2. **Create `process_tasks` Function**
+   - Implement a function to continuously pull the oldest task from the `tasks_queue` collection
+   - Execute the commands
+   - Update the task's `status` to `finished` or `failed` based on the command execution result
+   - Move the task to the `logs` collection after execution
+
+3. **Modify retry_command_until_success Function**
+   - Remove the existing retry logic
+   - Add logic to insert a new task into the `tasks_queue` collection with the appropriate fields
+   - Ensure the `status` is set to `pending` and `timestamp` is in UTC
+
+4. **Update Other Necessary Functions**
+   - Make sure all functions that execute tasks insert the appropriate `action` and `ynh_command` into the `tasks_queue` collection
+
 ---
 
 # Sample JSON requests for the endpoints
