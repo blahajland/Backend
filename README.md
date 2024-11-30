@@ -12,6 +12,9 @@ The blahaj.land for self-registration
 - queue system for the tasks since yunohost can only do one thing at a time
 - actually send the discord webhooks with an admin role ping
 - referral code support (simple code stored in the database after the tier)
+- porkbun API integration for adding blahaj.lol subdomains
+- the website endpoint should also be have a field for bluesky handle details
+  - it would simply have to add a file to the sites at /www/.well-known/atproto-did with the parameter provided by the user
 
 ---
 
