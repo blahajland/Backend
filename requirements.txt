@@ -1,0 +1,7 @@
+configparser
+discord.py
+requests
+flask
+flask-jwt-extended
+pymongo
+termcolor
