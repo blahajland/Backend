@@ -30,13 +30,14 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="YunoHost user manager")
     parser.add_argument("-v", "--verbose", action="store_true", help="Enable verbose output")
     parser.add_argument("--start", action="store_true", help="Start Flask app and Discord client")
+    parser.add_argument("--port", type=int, default=2137, help="Port to run the Flask app on")
     args = parser.parse_args()
 
     if args.start:
         from flask_app import app
         from discord_utils import start_discord_client_thread
         start_discord_client_thread()
-        app.run(debug=True)
+        app.run(debug=True, port=args.port)
     else:
         from usermanager import main_menu
         main_menu(verbose=args.verbose)
