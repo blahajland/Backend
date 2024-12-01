@@ -15,6 +15,7 @@ The blahaj.land for self-registration
 - porkbun API integration for adding blahaj.lol subdomains
 - the website endpoint should also be have a field for bluesky handle details
   - it would simply have to add a file to the sites at /www/.well-known/atproto-did with the parameter provided by the user
+- check for taken usernames against the database, instead of running ynh cli commands 
 
 Queue is the most important part of this, I think
 Without it, if we got random surges of registrations the commands WILL timeout before they are executed
