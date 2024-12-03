@@ -19,6 +19,7 @@ The blahaj.land for self-registration
 
 ### Completely new functionality for DomainHaj
 Domainhaj is a subdomain manager for users to utilize blahaj.lol for their own projects, for free
+See the spec and TODO [here](https://github.com/blahajland/UserCreationBackend/blob/dev/DOMAINS.md)
 
 ---
 
