@@ -15,5 +15,3 @@ func main() {
 func HomeHandler(w http.ResponseWriter, r *http.Request) {
 	w.Write([]byte("Hello, World!"))
 }
-
-//2dba840947b62ce34918146272f1294f725ce42e
