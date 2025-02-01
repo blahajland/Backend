@@ -12,8 +12,8 @@ func main() {
 	r.HandleFunc("/", HomeHandler)                         // POST
 	r.HandleFunc("/api/sites/create", SiteCreationHandler) // POST
 	r.HandleFunc("/api/sites/delete", SiteDeletionHandler) // POST
-	r.HandleFunc("/api/sites/update", SiteListHandler)     // POST
-	r.HandleFunc("/api/sites/list", SiteCreationHandler)   // POST
+	r.HandleFunc("/api/sites/update", SiteUpdateHandler)   // POST
+	r.HandleFunc("/api/sites/list", SiteListHandler)       // POST
 	r.HandleFunc("/api/sites/login", SiteLoginHandler)     // POST
 	r.Use(Middleware)
 
